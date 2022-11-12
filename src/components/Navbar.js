@@ -8,7 +8,7 @@ function Navbar(props){
         <nav className="navbar navbar-expand-lg bg-dark fixed-top">
           <div className="container-fluid">
             <a className="navbar-brand navbar-dark" href="/">
-              News Monkey
+              Quick News
             </a>            
             <button
               className="navbar-toggler"

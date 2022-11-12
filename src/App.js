@@ -13,9 +13,9 @@ import {
 } from "react-router-dom";
 
 export default function App() { 
-  const [country, setCountry] = useState("us");
+  const [country, setCountry] = useState("in");
   const [progress, setProgress] = useState(0) ;
-  let countries = [{"name":"United States", "value": "us"}, {"name": "India", "value":"in"}, {"name": "France", "value":"fr"}];
+  let countries = [{"name": "India", "value":"in"}, {"name":"United States", "value": "us"}, {"name": "France", "value":"fr"}];
   function handleCountryChange(value){
     console.log("country set to change");
   setCountry(value);
@@ -24,7 +24,7 @@ export default function App() {
 
   useEffect(()=>{
     console.log("country code is " + country);
-    document.title = "New Monkey";
+    document.title = "Quick News";
   });
 
  

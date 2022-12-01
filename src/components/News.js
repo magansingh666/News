@@ -31,8 +31,7 @@ export default function News(props) {
   }, []); 
 
   return (
-    <div className="container my-5 justify-content align-items-center">
-      
+    <div className="container my-5" style={{"margin": "0px auto"}}>      
 
       <InfiniteScroll
         dataLength={articles.length}

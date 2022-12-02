@@ -17,9 +17,9 @@ function NewsItem(props) {
 
 
           <div style={{"position": "absolute", "bottom": "0px", "zIndex": "2", "backgroundColor": "#ff3d00" ,
-           "width": "100%", "height": "15%"}} className="text-white pt-2">
+           "width": "100%", "height": "15%", "marginLeft": "-15px"}} className="text-white pt-2">
 
-          <p>{new Date(publishedAt).toUTCString()}</p>
+          <p style={{"paddingLeft": "15px"}}>{new Date(publishedAt).toUTCString()}</p>
           <div style={{"display": "flex","justifyContent": "flex-end", "paddingRight":"25px"}}>
           
           <a href={url} target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">

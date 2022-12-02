@@ -13,10 +13,22 @@ export default function News(props) {
   async function fetchData(page_no) {
     console.log("\n\n\n\n\n\n calling fetch data ");
     props.setProgress(20);
-    let key = process.env.REACT_APP_API_KEY.slice(1,-1);    
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${key}`;
+   
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}`;
     let proper_url = url + "&page=" + page_no + "&pageSize=" + "20";
-    let data = await fetch(proper_url);
+
+   // let u1 = "http://127.0.0.1:5001/pcs-study/us-central1/getNews" ;
+    let cloud_link = "https://us-central1-pcs-study.cloudfunctions.net/getNews";
+
+
+    let data = await fetch(cloud_link, {
+      method: "POST",
+      headers: {
+          'Content-Type' : 'application/json',      
+      },
+      body: JSON.stringify({ "link": proper_url }),
+    });
+
     props.setProgress(50);
     let parsedData = await data.json();
     setArticles([...articles, ...parsedData.articles]);
@@ -61,5 +73,24 @@ let countryOptions = [{"name":"United States", "value": "us"}, {"name": "India",
 
 
 
+   const response = await fetch(`${host}/api/note/addnote`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": user_token,
+      },
+      body: JSON.stringify({ title, description, tag }),
+    });
+
+
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${key}`;
+
+
+
+    , {
+      method:  "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({"url" : proper_url})
+    }
 
 */

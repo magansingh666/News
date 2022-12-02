@@ -15,7 +15,7 @@ function NewsItem(props) {
           </p>
           <p> {author ? author : ""}</p>
 
-k
+
           <div style={{"position": "absolute", "bottom": "0px", "zIndex": "2", "backgroundColor": "#ff3d00" ,
            "width": "100%", "height": "15%"}} className="text-white pt-2">
 

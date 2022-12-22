@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 import { useState } from "react";
-
 import LoadingBar from 'react-top-loading-bar';
+import countryCodes from "./CountryCodes";
+
 
 import {
   BrowserRouter as Router,
@@ -15,7 +16,9 @@ import {
 export default function App() { 
   const [country, setCountry] = useState("in");
   const [progress, setProgress] = useState(0) ;
-  let countries = [{"name": "India", "value":"in"}, {"name":"United States", "value": "us"}, {"name": "France", "value":"fr"}];
+  let countries = [{"name": "India", "value":"in"}, {"name":"United States", "value": "us"},
+   {"name": "France", "value":"fr"}];
+   countries = countryCodes; 
   function handleCountryChange(value){
     console.log("country set to change");
   setCountry(value);
@@ -49,7 +52,10 @@ export default function App() {
         setProgress={(value) => {setProgress(value)}} /> </Route>
         <Route exact path="/technology"> <News key={"technology"+ country} country={country} category="technology" 
         setProgress={(value) => {setProgress(value)}} /> </Route>
-        <Route exact path="/entertainment"> <News key={"entertainment" + country} country={country} category="entertainment" 
+        <Route exact path="/sports"> <News key={"sports"+ country} country={country} category="sports" 
+        setProgress={(value) => {setProgress(value)}} /> </Route>
+        <Route exact path="/entertainment"> <News key={"entertainment" + country} country={country} 
+        category="entertainment" 
         setProgress={(value) => {setProgress(value)}} /> </Route>        
       </Switch>      
       </Router>
@@ -57,3 +63,18 @@ export default function App() {
   );
   
 }
+
+
+
+/*
+
+
+
+
+
+
+
+
+
+
+*/
